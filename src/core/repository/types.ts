@@ -11,9 +11,9 @@ export interface Command {
     name: string
     shortcut: string[]
     commandId: number
-    subCommands?: Command[]
+    subActions: ActionCategory[]
     displayIcon: boolean
     displayShortcut: boolean
-    action: () => void
+    action: (cb?: () => void) => void
     Icon: FC
 }
