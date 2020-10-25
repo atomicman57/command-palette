@@ -4,6 +4,8 @@ import { ReactComponent as StatusSvg } from "../../icons/status.svg";
 import { ReactComponent as EditSvg } from "../../icons/edit.svg";
 import { ReactComponent as InboxSvg } from "../../icons/inbox.svg";
 import { ReactComponent as FocusSvg } from "../../icons/focus.svg";
+import { ReactComponent as TodoSvg } from "../../icons/todo.svg";
+import { ReactComponent as BacklogSvg } from "../../icons/backlog.svg";
 import { ActionCategory } from "./types";
 
 export const actions: ActionCategory[] = [
@@ -16,7 +18,7 @@ export const actions: ActionCategory[] = [
         name: "Log an activity",
         shortcut: ["C"],
         commandId: 0,
-        subCommands: [],
+        subActions: [],
         Icon: LogSvg,
         displayIcon: true,
         displayShortcut: true,
@@ -28,7 +30,7 @@ export const actions: ActionCategory[] = [
         name: "Set a Reminder",
         shortcut: ["H"],
         Icon: ReminderSvg,
-        subCommands: [],
+        subActions: [],
         commandId: 1,
         displayIcon: true,
         displayShortcut: true,
@@ -40,32 +42,52 @@ export const actions: ActionCategory[] = [
         name: "Change status",
         shortcut: ["Shift", "S"],
         Icon: StatusSvg,
-        subCommands: [
+        subActions: [
           {
-            name: "Backlog",
-            shortcut: ["Shift", "B"],
-            Icon: StatusSvg,
-            subCommands: [],
-            commandId: 2,
-            displayIcon: true,
-            displayShortcut: true,
-            action: () => {
-              console.log("Triggered", "Backlog");
-            },
-          },
+            categoryId: 7,
+            name: "default",
+            displayCategoryName: false,
+            commands: [
+              {
+                name: "Backlog",
+                shortcut: ["Shift", "B"],
+                Icon: BacklogSvg,
+                subActions: [],
+                commandId: 10,
+                displayIcon: true,
+                displayShortcut: true,
+                action: () => {
+                  console.log("Triggered", "Backlog");
+                },
+              },
+              {
+                name: "Todo",
+                shortcut: ["Shift", "T"],
+                Icon: TodoSvg,
+                subActions: [],
+                commandId: 11,
+                displayIcon: true,
+                displayShortcut: true,
+                action: () => {
+                  console.log("Triggered", "Todo");
+                },
+              },
+            ]
+          }
         ],
         commandId: 2,
         displayIcon: true,
         displayShortcut: true,
-        action: () => {
+        action: (cb = () => { }) => {
           console.log("Triggered", "Change status");
+          cb();
         },
       },
       {
         name: "Edit contact",
         Icon: EditSvg,
         shortcut: ["E"],
-        subCommands: [],
+        subActions: [],
         commandId: 3,
         displayIcon: true,
         displayShortcut: true,
@@ -84,7 +106,7 @@ export const actions: ActionCategory[] = [
         name: "Go to inbox",
         shortcut: ["G I"],
         Icon: InboxSvg,
-        subCommands: [],
+        subActions: [],
         commandId: 4,
         displayIcon: true,
         displayShortcut: true,
@@ -97,7 +119,7 @@ export const actions: ActionCategory[] = [
         shortcut: ["G F"],
         Icon: FocusSvg,
         commandId: 5,
-        subCommands: [],
+        subActions: [],
         displayIcon: true,
         displayShortcut: true,
         action: () => {

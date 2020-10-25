@@ -1,12 +1,39 @@
 import React, { useRef } from "react";
 import Shortcut from "../Shortcut";
-import { Command } from "../../core/repository/types";
+import { ActionCategory, Command } from "../../core/repository/types";
 
-const Suggestion: React.FC<Command> = ({ commandId, action, Icon, name, shortcut, displayIcon }) => {
+type SuggestionProps = Command & {
+  setCurrentActions: (userActions: ActionCategory[]) => void;
+  setPlaceholder: (placehoder: string) => void;
+};
+
+const Suggestion: React.FC<SuggestionProps> = ({
+  commandId,
+  action,
+  Icon,
+  name,
+  shortcut,
+  displayIcon,
+  setCurrentActions,
+  setPlaceholder,
+  subActions,
+}) => {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={ref} onMouseOver={() => ref.current?.focus()} tabIndex={commandId} key={commandId} className="suggestion-container" onClick={action}>
+    <div
+      ref={ref}
+      onMouseOver={() => ref.current?.focus()}
+      tabIndex={commandId}
+      key={commandId}
+      className="suggestion-container"
+      onClick={() =>
+        action(() => {
+          setCurrentActions(subActions);
+          setPlaceholder(`${name}...`);
+        })
+      }
+    >
       <div className="name-container">
         {Icon && displayIcon && <Icon />}
         <h4>{name}</h4>

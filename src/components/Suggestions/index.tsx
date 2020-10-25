@@ -1,13 +1,21 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import Category from "../Category";
 import Commands from "../Commands";
-import { ActionCategory } from "../../core/repository/types"
+import { ActionCategory } from "../../core/repository/types";
 
 type SuggestionsProps = {
-  suggestions: ActionCategory[] 
-}
+  suggestions: ActionCategory[];
+  isUserTyping: boolean
+  setCurrentActions: (userActions: ActionCategory[]) => void
+  setPlaceholder: (placehoder: string) => void
+};
 
-const Suggestions: React.FC<SuggestionsProps> = ({ suggestions }) => {
+const Suggestions: React.FC<SuggestionsProps> = ({ suggestions, isUserTyping, setCurrentActions, setPlaceholder }) => {
+  useEffect(() => {
+    const element = document.querySelector(".suggestion-container") as HTMLDivElement;
+    !isUserTyping && element && element.focus();
+  });
+
   return (
     <div className="suggestions">
       {suggestions.map((action, index) => {
@@ -15,7 +23,7 @@ const Suggestions: React.FC<SuggestionsProps> = ({ suggestions }) => {
         return (
           <Fragment key={index}>
             {displayCategoryName && <Category name={name} />}
-            <Commands commands={commands} />
+            <Commands setPlaceholder={setPlaceholder} setCurrentActions={setCurrentActions} commands={commands} />
           </Fragment>
         );
       })}
