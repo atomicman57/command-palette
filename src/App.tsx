@@ -23,29 +23,38 @@ const App: React.FC = () => {
       Mousetrap.bind(lowercaseShortcut, () => action());
     });
 
-    // Mousetrap.bind("up", () => {
-    //   const active = document.activeElement;
-    //   let sibling = active.previousSibling;
-    //   while (sibling) {
-    //     if (sibling.matches(".suggestion-container")) {
-    //       sibling.focus();
-    //       return true;
-    //     }
-    //     sibling = sibling.previousElementSibling;
-    //   }
-    // });
+    const firstElement = document.querySelector('.suggestion-container') as HTMLDivElement
+    firstElement.focus()
 
-    // Mousetrap.bind("down", () => {
-    //   const active = document.activeElement;
-    //   let sibling = active.nextSibling;
-    //   while (sibling) {
-    //     if (sibling.matches(".suggestion-container")) {
-    //       sibling.focus();
-    //       return true;
-    //     }
-    //     sibling = sibling.nextElementSibling;
-    //   }
-    // });
+
+    Mousetrap.bind("up", () => {
+      const active = document.activeElement as HTMLElement;
+      let sibling = active.previousSibling as HTMLElement;
+      while (sibling && sibling.matches) {
+        if (sibling.matches(".suggestion-container")) {
+          sibling.focus();
+          return true;
+        }
+        sibling = sibling.previousElementSibling as HTMLElement;
+      }
+    });
+
+    Mousetrap.bind("down", () => {
+      const active = document.activeElement as HTMLElement;
+      let sibling = active.nextSibling as HTMLElement;
+      while (sibling && sibling.matches) {
+        if (sibling.matches(".suggestion-container")) {
+          sibling.focus();
+          return true;
+        }
+        sibling = sibling.nextElementSibling as HTMLElement;
+      }
+    });
+
+    Mousetrap.bind("enter", () => {
+      const active = document.activeElement as HTMLElement;
+      active.click()
+    });
   });
 
 
