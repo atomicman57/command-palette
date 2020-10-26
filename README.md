@@ -40,6 +40,8 @@ components. These components are kept as independent as possible. See [this link
 on Chrome's V8 JavaScript engine. It is lightweight, efficient and greatly used in building 
 web apps. Please visit [this link](https://nodejs.org) for more details.
 
+- [TypeScript](https://www.typescriptlang.org/): TypeScript is an open-source language which builds on JavaScript, one of the world’s most used tools, by adding static type definitions.
+
 - [Sass/Scss](http://sass-lang.com/): Sass makes CSS fun again. Sass is an extension of CSS, adding nested rules, variables, mixins, selector inheritance, and more. It's translated to well-formatted, standard CSS using the command line tool or a web-framework plugin.
 
 
