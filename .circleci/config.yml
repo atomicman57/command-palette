@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-server-{{ checksum "yarn.lock" }}
+          key: dependency-cache-server-{{ checksum "package.json" }}
 
       - run: yarn install
 
@@ -17,6 +17,6 @@ jobs:
           paths:
             - node_modules
           key:
-            - dependency-cache-server-{{ checksum "yarn.lock" }}
+            - dependency-cache-server-{{ checksum "package.json" }}
 
       - run: yarn test
