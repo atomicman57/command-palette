@@ -34,9 +34,7 @@ Alternatively, You may clone the repository and run the app locally to use
 These were developed by Facebook and are used for building web pages that are structured as a collection of 
 components. These components are kept as independent as possible. See [this link](https://facebook.github.io/react/).
 
-- ECMAScript 6: Also known as ES2015, this is the newest version of Javascript with 
-next-generation features like arrow functions, generators, enhanced object literals, 
-spread operators and more. Click [this link](https://en.wikipedia.org/wiki/ECMAScript) for details.
+- ECMAScript 11: Also known as ES2020,it is latest javascript language, EcmaScript 2020 released in 2020 year. ES11. TC39 is the approving committe, to add features to javascript.he same features already ported to javascript engines like V8(Nodejs) and spidermonkey
 
 - [NodeJS](https://nodejs.org): NodeJS is a server-side JavaScript runtime engine built 
 on Chrome's V8 JavaScript engine. It is lightweight, efficient and greatly used in building 
