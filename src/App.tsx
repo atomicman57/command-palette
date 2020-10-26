@@ -12,7 +12,7 @@ const App: React.FC = () => {
 
   const focusElement = () => {
     const element = document.querySelector(".suggestion-container") as HTMLDivElement;
-    element && element.focus();
+    element?.focus();
   };
 
   useEffect(() => {
@@ -24,10 +24,9 @@ const App: React.FC = () => {
         focusElement();
       }
       let sibling = active.previousSibling as HTMLElement;
-      while (sibling && sibling.matches) {
+      while (sibling?.matches) {
         if (sibling.matches(suggestionSelector)) {
-          sibling.focus();
-          return true;
+          return sibling.focus();
         }
         sibling = sibling.previousElementSibling as HTMLElement;
       }
@@ -39,10 +38,9 @@ const App: React.FC = () => {
         focusElement();
       }
       let sibling = active.nextSibling as HTMLElement;
-      while (sibling && sibling.matches) {
+      while (sibling?.matches) {
         if (sibling.matches(suggestionSelector)) {
-          sibling.focus();
-          return true;
+          return sibling.focus();
         }
         sibling = sibling.nextElementSibling as HTMLElement;
       }
@@ -50,7 +48,7 @@ const App: React.FC = () => {
 
     Mousetrap.bind("enter", () => {
       const active = document.activeElement as HTMLElement;
-      active && active.click();
+      active?.click();
     });
 
     Mousetrap.bind("esc", () => {
@@ -62,8 +60,7 @@ const App: React.FC = () => {
   const getCommands = (actions: ActionCategory[]) => {
     return actions
       .map((action) => {
-        const { commands } = action;
-        return commands;
+        return action.commands;
       })
       .flat();
   };
@@ -79,13 +76,13 @@ const App: React.FC = () => {
     allCommands.forEach((command) => {
       const { shortcut, action, subActions, name } = command;
       const lowercaseShortcut = shortcut
-        .map((st) => {
-          return st.toLowerCase();
+        .map((singleShortcut) => {
+          return singleShortcut.toLowerCase();
         })
         .join("+");
 
       Mousetrap.bind(lowercaseShortcut, () => {
-        if (subActions && subActions.length) {
+        if (subActions?.length) {
           return action(() => {
             setCurrentActions(subActions);
             setPlaceholder(`${name}...`);

@@ -7,6 +7,7 @@ import { ReactComponent as FocusSvg } from "../../icons/focus.svg";
 import { ReactComponent as TodoSvg } from "../../icons/todo.svg";
 import { ReactComponent as BacklogSvg } from "../../icons/backlog.svg";
 import { ActionCategory } from "./types";
+import { logger } from "../../utils/logger";
 
 export const actions: ActionCategory[] = [
   {
@@ -23,7 +24,7 @@ export const actions: ActionCategory[] = [
         displayIcon: true,
         displayShortcut: true,
         action: () => {
-          console.log("Triggered", "Log an Activity");
+          logger("Log an Activity");
         },
       },
       {
@@ -35,7 +36,7 @@ export const actions: ActionCategory[] = [
         displayIcon: true,
         displayShortcut: true,
         action: () => {
-          console.log("Triggered", "Set a Reminder");
+          logger("Set a Reminder");
         },
       },
       {
@@ -57,7 +58,7 @@ export const actions: ActionCategory[] = [
                 displayIcon: true,
                 displayShortcut: true,
                 action: () => {
-                  console.log("Triggered", "Backlog");
+                  logger("Backlog");
                 },
               },
               {
@@ -69,7 +70,7 @@ export const actions: ActionCategory[] = [
                 displayIcon: true,
                 displayShortcut: true,
                 action: () => {
-                  console.log("Triggered", "Todo");
+                  logger("Todo");
                 },
               },
             ]
@@ -79,7 +80,7 @@ export const actions: ActionCategory[] = [
         displayIcon: true,
         displayShortcut: true,
         action: (cb = () => { }) => {
-          console.log("Triggered", "Change status");
+          logger("Change status");
           cb();
         },
       },
@@ -92,7 +93,7 @@ export const actions: ActionCategory[] = [
         displayIcon: true,
         displayShortcut: true,
         action: () => {
-          console.log("Triggered", "Edit contact");
+          logger("Edit contact");
         },
       },
     ],
@@ -111,7 +112,7 @@ export const actions: ActionCategory[] = [
         displayIcon: true,
         displayShortcut: true,
         action: () => {
-          console.log("Triggered", "Go to inbox");
+          logger("Go to inbox");
         },
       },
       {
@@ -123,7 +124,7 @@ export const actions: ActionCategory[] = [
         displayIcon: true,
         displayShortcut: true,
         action: () => {
-          console.log("Triggered", "Go to focus");
+          logger("Go to focus");
         },
       },
     ],

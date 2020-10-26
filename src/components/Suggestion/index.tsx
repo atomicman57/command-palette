@@ -39,16 +39,16 @@ const Suggestion: React.FC<SuggestionProps> = ({
         <h4>{name}</h4>
       </div>
       <div className="shortcut-container">
-        {shortcut.map((st, index) => {
+        {shortcut.map((singleShortcut, index) => {
           const delimeter = "then";
-          const commandArr = st.split(" ").join(` ${delimeter} `);
+          const commandArr = singleShortcut.split(" ").join(` ${delimeter} `);
           const commandArray = commandArr.split(" ");
           if (commandArr.length > 1) {
-            return commandArray.map((shortc, index) => {
-              return <Shortcut shortc={shortc} delimeter={delimeter} key={index} />;
+            return commandArray.map((commandShortcut, index) => {
+              return <Shortcut shortcut={commandShortcut} delimeter={delimeter} key={index} />;
             });
           }
-          return <span key={index}>{st}</span>;
+          return <span key={index}>{singleShortcut}</span>;
         })}
       </div>
     </div>

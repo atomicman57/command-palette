@@ -1,12 +1,12 @@
 import React from "react";
 
 export type ShortcutProps = {
-  shortc: string;
+  shortcut: string;
   delimeter: string;
 };
 
-const Shortcut: React.FC<ShortcutProps> = ({ shortc, delimeter }) => {
-  return <span className={shortc === delimeter ? "command-delimeter" : ""}>{shortc}</span>;
+const Shortcut: React.FC<ShortcutProps> = ({ shortcut, delimeter }) => {
+  return <span className={shortcut === delimeter ? "command-delimeter" : ""}>{shortcut}</span>;
 };
 
 export default Shortcut;

@@ -1,10 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 const Category: React.FC<{ name: string }> = ({ name }) => {
   return (
-    <Fragment>
+    <>
       <div className="category-name">{name}</div>
-    </Fragment>
+    </>
   );
 };
 
