@@ -19,4 +19,4 @@ jobs:
           key:
             - dependency-cache-server-{{ checksum "yarn.lock" }}
 
-      - run: yarn test --coverage --updateSnapshot
+      - run: yarn test
