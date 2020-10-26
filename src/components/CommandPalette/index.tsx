@@ -25,7 +25,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({
     if (actions !== filteredSuggestions) {
       setFilteredSuggestions(actions);
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [actions]);
 
