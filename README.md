@@ -1,44 +1,79 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Command Palette
 
-## Available Scripts
+[![Build Status](https://travis-ci.com/atomicman57/command-palette.svg?token=KQkVU4cpgGuyYufdzgcb&branch=main)](https://travis-ci.com/atomicman57/command-palette)
 
-In the project directory, you can run:
+## Introduction
+The Command Palette provides access to many commands. You can execute commands, search for commands and use shortcuts.
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Key Features of this Application
+* Search Commands
+* Sub Commands
+* Execute Commands via shortcuts
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Usage
+You can access the app at [CommandPalette](https://command-palette.vercel.app/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Alternatively, You may clone the repository and run the app locally to use
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Local Installation Guide
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* Clone the repository 
+    * git clone https://github.com/atomicman57/command-palette
+* Navigate to the project directory **cd command-palette**
+* Install the dependencies using **yarn install**
+* Run **yarn start** to start the application.
+* The app will start on your local server.
+* Run tests with: **yarn test**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies
 
-### `yarn eject`
+- [React](https://facebook.github.io/react/) and [ReactDOM](https://facebook.github.io/react/docs/react-dom.html): 
+These were developed by Facebook and are used for building web pages that are structured as a collection of 
+components. These components are kept as independent as possible. See [this link](https://facebook.github.io/react/).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- ECMAScript 6: Also known as ES2015, this is the newest version of Javascript with 
+next-generation features like arrow functions, generators, enhanced object literals, 
+spread operators and more. Click [this link](https://en.wikipedia.org/wiki/ECMAScript) for details.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [NodeJS](https://nodejs.org): NodeJS is a server-side JavaScript runtime engine built 
+on Chrome's V8 JavaScript engine. It is lightweight, efficient and greatly used in building 
+web apps. Please visit [this link](https://nodejs.org) for more details.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [Sass/Scss](http://sass-lang.com/): Sass makes CSS fun again. Sass is an extension of CSS, adding nested rules, variables, mixins, selector inheritance, and more. It's translated to well-formatted, standard CSS using the command line tool or a web-framework plugin.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Test Dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Jest](https://jestjs.io/): Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Enzyme](airbnb.io/enzyme/docs/api/): Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' out
+
+## Contributing
+
+* Fork this repositry to your account.
+* Clone your repositry: git clone git@github.com:your-username/command-palette.git
+* Create your feature branch: git checkout -b feature/feature-id/<3-4 word feature description>
+* Commit your changes: git commit -m "feature(scope): (subject) <BLANK LINE> (body) <BLANK LINE> (footer)"
+* Push to the remote branch: git push origin new-feature
+* Open a pull request.
+
+- Commit Message Convention
+    - scope should be something specific to the commit change e.g logo
+    - subject text should:
+        - use present tense: "save" not "saved" or "saving"
+        - not capitalize first letter i.e no "Carry to safety"
+        - not end with a dot (.)
+    - Message body (optional) If a body is to be written, it should:
+      - written in present tense.
+      - include reason for change and difference in the previous behaviour
+
+    - Message Footer This should be used for referencing the issues using the following keywords: Start, Delivers, Fixes and Finishes. It should be written as:
+      - [Start #345]
+    
+## License
+
+This project is authored by Philips Blessing and is licensed 
+for your use, modification and distribution under [the MIT license](https://en.wikipedia.org/wiki/MIT_License). 
