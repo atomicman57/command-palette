@@ -55,7 +55,7 @@ const App: React.FC = () => {
         setCurrentActions(actions)
         setPlaceholder(initialPlaceholder)
     });
-  });
+  }, []);
 
   const getCommands = (actions: ActionCategory[]) => {
     return actions
@@ -91,7 +91,7 @@ const App: React.FC = () => {
         action();
       });
     });
-  });
+  }, []);
 
   return (
     <div className="App">
