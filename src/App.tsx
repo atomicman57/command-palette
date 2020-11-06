@@ -55,6 +55,10 @@ const App: React.FC = () => {
         setCurrentActions(actions)
         setPlaceholder(initialPlaceholder)
     });
+    return () => {
+      // Unbind on unmount
+      Mousetrap.unbind(["esc", "enter", "down", "up"])
+    }
   }, []);
 
   const getCommands = (actions: ActionCategory[]) => {
@@ -72,6 +76,7 @@ const App: React.FC = () => {
     });
 
     const allCommands = [...commands, ...subCommands] as Command[];
+    const mousetrapCommands = [] as string[];
 
     allCommands.forEach((command) => {
       const { shortcut, action, subActions, name } = command;
@@ -90,7 +95,13 @@ const App: React.FC = () => {
         }
         action();
       });
+
+      mousetrapCommands.push(lowercaseShortcut)
     });
+    return () => {
+      // Unbind events
+      Mousetrap.unbind(mousetrapCommands)
+    }
   }, []);
 
   return (

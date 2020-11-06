@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { ActionCategory } from "../../core/repository/types";
 import { findCommands } from "../../utils/search";
 import Input from "../Input";
@@ -19,23 +19,16 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({
   placeholder,
   setPlaceholder,
 }) => {
-  const [filteredSuggestions, setFilteredSuggestions] = useState(actions);
 
-  useEffect(() => {
-    if (actions !== filteredSuggestions) {
-      setFilteredSuggestions(actions);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [actions]);
-
+  const [userInput, setUserInput] = useState("");
   const [isUserTyping, setIsUserTyping] = useState(false);
-  const onChange = (userInput: string) => {
-    // Remove object reference and make immutable
-    const commandActions = actions.map((object) => ({ ...object }));
-    const filteredSuggestions = findCommands(commandActions, userInput);
-    setFilteredSuggestions(filteredSuggestions);
+  
+  const onChange = useCallback((userInput: string) => {
     setIsUserTyping(true);
-  };
+    setUserInput(userInput)
+  }, []);
+
+  const suggestions = useMemo(() => findCommands(actions, userInput), [actions, userInput]);
 
   return (
     <div className="command-palette-container">
@@ -46,7 +39,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({
       <Suggestions
         setPlaceholder={setPlaceholder}
         setCurrentActions={setCurrentActions}
-        suggestions={filteredSuggestions}
+        suggestions={suggestions}
         isUserTyping={isUserTyping}
       />
     </div>

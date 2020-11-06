@@ -1,6 +1,7 @@
 import { ActionCategory } from "../core/repository/types"
 
-export const findCommands = (commands: ActionCategory[], searchString: string) => {
+export const findCommands = (commandActions: ActionCategory[], searchString: string) => {
+  const commands = commandActions.map((object) => ({ ...object }));
   return (commands.filter((suggestion) => {
     const { commands } = suggestion;
     const input = searchString.toLowerCase().trim();
